@@ -2,6 +2,12 @@ var num = 5475;
 var tester2;
 var tester3;
 
+$(document).ready(function() {
+    $('#number').click(analyzeGuess);
+    pickNumber();
+    $('#guess').keypress(enterKey);
+});
+
 function split2(num) {
     if (num%2 === 0) {
         console.log(num + ' is divisible by 2.');
