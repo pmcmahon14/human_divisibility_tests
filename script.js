@@ -7,6 +7,8 @@ $(document).ready(function() {
 });
 
 var num = null;
+var count3 = 0;
+var sum3 = 0;
 var tester2 = 0;
 var tester3 = 0;
 var tester5 = 0;
@@ -75,6 +77,25 @@ function factor2() {
 
 function factor3() {
     if (num % 3 === 0) {
+        var three = (num.toString().length);
+        console.log(three);
+        for (three; three>0; three--) {
+            var num3 = num;
+            sum3 = sum3 + num3%10;
+            console.log(sum3);
+            num3 = Math.floor(num3/10);
+            console.log(num);
+            count3++;
+        } count3 = ('3^' + count3);
+        document.getElementById('answer3').innerHTML = count3;
+        factor5();
+    } else {
+        factor5();
+    }
+}
+
+/*function factor3() {
+    if (num % 3 === 0) {
         for (three = 0; num % 3 === 0; three++) {
             tester3++;
             console.log(num + ' is divisible by 3 ' + tester3 + ' times.');
@@ -86,7 +107,7 @@ function factor3() {
     } else {
         factor5();
     }
-}
+}*/
 
 function factor5() {
     if (num % 5 === 0) {
