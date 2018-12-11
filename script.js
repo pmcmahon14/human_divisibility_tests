@@ -23,6 +23,9 @@ function testNumber () {
     true2 = true;
     true3 = true;
     true4 = true;
+    true5 = true;
+    true7 = true;
+    true9 = true;
     num = document.getElementById('number').value;
     console.log(num);
     //console.log(num % 1 === 0);
@@ -90,12 +93,13 @@ function divide4() {
 
 function divide5() {
     console.log(num);
-    const num5 = num/10;
+    const num5 = num%10;
     if (num5 === 0 || num5 === 5) {
         document.getElementById('answer5').innerHTML = num + ' is divisible by five.';
         divide6();
     } else {
         document.getElementById('answer5').innerHTML = num + ' is not divisible by five.';
+        true5 = false;
         divide6();
     }
 }
@@ -136,6 +140,7 @@ function divide7 () {
         console.log(num);
     } else {
         document.getElementById('answer7').innerHTML = num + ' is not divisible by seven.';
+        true7 = false;
         divide8();
         console.log(num);
     }
@@ -227,42 +232,38 @@ function divide12 () {
     console.log(true4);
     if (true3 === true  && true4 === true) {
         document.getElementById('answer12').innerHTML = num + ' is divisible by twelve.';
-        divide13();
+        divide14();
     } else {
         document.getElementById('answer12').innerHTML = num + ' is not divisible by twelve.';
-        divide13();
+        divide14();
     }
 }
 
-function divide13 () {
-    if (num % 11 === 0) {
-        for (eleven = 0; num % 11 === 0; eleven++) {
-            tester11++;
-            console.log(num + ' is divisible by 11 ' + tester11 + ' times.');
-            num = num / 11;
-            console.log(num);
-        } eleven = ('11^' + eleven);
-        document.getElementById('answer11').innerHTML = eleven;
-        factor13();
+//TODO: divisibility by 13
+
+function divide14 () {
+    console.log(true2);
+    console.log(true7);
+    if (true2 === true && true7 === true) {
+        document.getElementById('answer14').innerHTML = num + ' is divisible by fourteen.';
+        divide15();
     } else {
-        factor13();
+        document.getElementById('answer14').innerHTML = num + ' is not divisible by fourteen.';
+        divide15();
     }
 }
 
-function factor13 () {
-    if (num % 13 === 0) {
-        for (thirteen = 0; num % 13 === 0; thirteen++) {
-            tester13++;
-            console.log(num + ' is divisible by 13 ' + tester13 + ' times.');
-            num = num / 13;
-            console.log(num);
-        } thirteen = ('13^' + thirteen);
-        document.getElementById('answer13').innerHTML = thirteen;
+function divide15 () {
+    if (true3 === true && true5 === true) {
+        document.getElementById('answer15').innerHTML = num + ' is divisible by fifteen.';
         factor17();
     } else {
+        document.getElementById('answer15').innerHTML = num + ' is not divisible by fifteen.';
         factor17();
     }
 }
+
+//TODO: divisibility by 16
 
 function factor17 () {
     if (num % 17 === 0) {
