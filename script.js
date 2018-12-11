@@ -22,6 +22,7 @@ function enterKey(event) {
 function testNumber () {
     true2 = true;
     true3 = true;
+    true4 = true;
     num = document.getElementById('number').value;
     console.log(num);
     //console.log(num % 1 === 0);
@@ -79,6 +80,7 @@ function divide4() {
         divide5();
     } else {
         document.getElementById('answer4').innerHTML = num + ' is not divisible by four.';
+        true4 = false;
         divide5();
     }
 }
@@ -217,26 +219,22 @@ function divide11() {
             document.getElementById('answer11').innerHTML = num + ' is divisible by eleven.';
         } else {
             document.getElementById('answer11').innerHTML = num + ' is not divisible by eleven.';
-        }
-
+        }divide12();
 }
 
-function factor23 () {
-    if (num % 23 === 0) {
-        for (seven = 0; num % 23 === 0; seven++) {
-            tester23++;
-            console.log(num + ' is divisible by 23 ' + tester7 + ' times.');
-            num = num / 23;
-            console.log(num);
-        } seven = ('23^' + seven);
-        document.getElementById('answer7').innerHTML = seven;
-        factor11();
+function divide12 () {
+    console.log(true3);
+    console.log(true4);
+    if (true3 === true  && true4 === true) {
+        document.getElementById('answer12').innerHTML = num + ' is divisible by twelve.';
+        divide13();
     } else {
-        factor11();
+        document.getElementById('answer12').innerHTML = num + ' is not divisible by twelve.';
+        divide13();
     }
 }
 
-function factor11 () {
+function divide13 () {
     if (num % 11 === 0) {
         for (eleven = 0; num % 11 === 0; eleven++) {
             tester11++;
