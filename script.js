@@ -6,39 +6,9 @@ $(document).ready(function() {
     $('#number').keypress(enterKey);
 });
 
-var num = null;
-var count3 = 0;
-var sum3 = 0;
-var tester2 = 0;
-var tester3 = 0;
-var tester5 = 0;
-var tester7 = 0;
-var tester11 = 0;
-var tester13 = 0;
-var tester17 = 0;
-var tester19 = 0;
-var tester23 = 0;
-var tester29 = 0;
-var tester31 = 0;
-var tester37 = 0;
-var tester41 = 0;
-var tester43 = 0;
-var tester47 = 0;
-var tester51 = 0;
-var tester53 = 0;
-var tester59 = 0;
-var tester61 = 0;
-var tester67 = 0;
-var tester71 = 0;
-var tester73 = 0;
-var tester79 = 0;
-var tester83 = 0;
-var tester89 = 0;
-var tester97 = 0;
-var factorArray = [];
 
 function clearForm() {
-    $('#guess').val('');
+    $('#number').val('');
     console.log('clearform');
     //document.getElementById('guess').innerHTML = "";
 }
@@ -50,88 +20,215 @@ function enterKey(event) {
 }
 
 function testNumber () {
+    true2 = true;
+    true3 = true;
     num = document.getElementById('number').value;
     console.log(num);
     //console.log(num % 1 === 0);
     if (num < 2 || (num % 1 !== 0)) {
         document.getElementById('errorMessage').innerHTML = ('Please input integer of 2 or greater.');
     } else {
-        factor2();
+        divide2();
     }
 }
 //29484
-function factor2() {
+function divide2() {
+
     if (num % 2 === 0) {
-        for (two = 0; num % 2 === 0; two++) {
-            tester2++;
-            console.log(num + ' is divisible by 2 ' + tester2 + ' times.');
-            num = num / 2;
-            console.log(num);
-        } two = ('2^' + two);
-        document.getElementById('answer2').innerHTML = two;
-        factor3();
+        document.getElementById('answer2').innerHTML = num + ' is divisible by two.';
+        divide3();
     } else {
-        factor3();
-    }
+        document.getElementById('answer2').innerHTML = num + ' is not divisible by two.';
+        true2 = false;
+        divide3();
+    }console.log(true2);
 }
 
-function factor3() {
-    if (num % 3 === 0) {
-        var three = (num.toString().length);
-        console.log(three);
+
+
+function divide3() {
+    let three = (num.toString().length);
+    let tester3 = 0;
+    let num3 = num;
+    console.log(three);
         for (three; three>0; three--) {
-            var num3 = num;
-            sum3 = sum3 + num3%10;
-            console.log(sum3);
+            console.log(num3);
+            tester3 = tester3 + num3%10;
+            console.log(tester3);
             num3 = Math.floor(num3/10);
             console.log(num);
-            count3++;
-        } count3 = ('3^' + count3);
-        document.getElementById('answer3').innerHTML = count3;
-        factor5();
+            console.log(num3);
+        }
+        if (tester3%3 === 0) {
+            document.getElementById('answer3').innerHTML = num + ' is divisible by three.';
+            divide4();
+            console.log(num);
+        } else {
+            document.getElementById('answer3').innerHTML = num + ' is not divisible by three.';
+            true3 = false;
+            divide4();
+            console.log(num);
+        }
+    }
+
+function divide4() {
+    console.log(num);
+    const num4 = num%1000;
+    if (num4%4 === 0) {
+        document.getElementById('answer4').innerHTML = num + ' is divisible by four.';
+        divide5();
     } else {
-        factor5();
+        document.getElementById('answer4').innerHTML = num + ' is not divisible by four.';
+        divide5();
     }
 }
 
-/*function factor3() {
-    if (num % 3 === 0) {
-        for (three = 0; num % 3 === 0; three++) {
-            tester3++;
-            console.log(num + ' is divisible by 3 ' + tester3 + ' times.');
-            num = num / 3;
-            console.log(num);
-        } three = ('3^' + three);
-        document.getElementById('answer3').innerHTML = three;
-        factor5();
-    } else {
-        factor5();
-    }
-}*/
+//divide number by 10, store % in var
+//if  % equals 5 or 0, divisible by 5
 
-function factor5() {
-    if (num % 5 === 0) {
-        for (five = 0; num % 5 === 0; five++) {
-            tester5++;
-            console.log(num + ' is divisible by 5 ' + tester5 + ' times.');
-            num = num / 5;
-            console.log(num);
-        } five = ('5^' + five);
-        document.getElementById('answer5').innerHTML = five;
-        factor7();
+function divide5() {
+    console.log(num);
+    const num5 = num/10;
+    if (num5 === 0 || num5 === 5) {
+        document.getElementById('answer5').innerHTML = num + ' is divisible by five.';
+        divide6();
     } else {
-        factor7();
+        document.getElementById('answer5').innerHTML = num + ' is not divisible by five.';
+        divide6();
     }
 }
 
-function factor7 () {
-    if (num % 7 === 0) {
-        for (seven = 0; num % 7 === 0; seven++) {
-            tester7++;
-            console.log(num + ' is divisible by 7 ' + tester7 + ' times.');
-            num = num / 7;
+function divide6 () {
+    console.log(true2);
+    console.log(true3);
+    if (true2 === true  && true3 === true) {
+        document.getElementById('answer6').innerHTML = num + ' is divisible by six.';
+        divide7();
+    } else {
+        document.getElementById('answer6').innerHTML = num + ' is not divisible by six.';
+        divide7();
+    }
+}
+
+//need divide7();
+//take num, get %10 and mult that (%10*2), take num - (%10*2) = num, repeat
+
+function divide7 () {
+    let seven = (num.toString().length);
+    let tester7 = 0;
+    let num7 = num;
+    console.log(seven);
+    for (seven; seven>2; seven--) {
+        console.log(num7);
+        tester7 = (num7%10)*2;
+        //console.log(tester7);
+        num7 = Math.floor(num7/10);
+        //console.log(num7);
+        num7 = num7 - tester7;
+        console.log(num);
+        console.log(num7);
+    }
+    if (num7%7 === 0) {
+        document.getElementById('answer7').innerHTML = num + ' is divisible by seven.';
+        divide8();
+        console.log(num);
+    } else {
+        document.getElementById('answer7').innerHTML = num + ' is not divisible by seven.';
+        divide8();
+        console.log(num);
+    }
+}
+
+function divide8 () {
+    console.log(num);
+    const num8 = num%1000;
+    if (num8%8 === 0) {
+        document.getElementById('answer8').innerHTML = num + ' is divisible by eight.';
+        divide9();
+    } else {
+        document.getElementById('answer8').innerHTML = num + ' is not divisible by eight.';
+        divide9();
+    }
+}
+
+function divide9 () {
+    let nine = (num.toString().length);
+    let tester9 = 0;
+    let num9 = num;
+    console.log(nine);
+    for (nine; nine>0; nine--) {
+        console.log(num9);
+        tester9 = tester9 + num9%10;
+        console.log(tester9);
+        num9 = Math.floor(num9/10);
+        console.log(num);
+        console.log(num9);
+    }
+    if (tester9%9 === 0) {
+        document.getElementById('answer9').innerHTML = num + ' is divisible by nine.';
+        divide10();
+        console.log(num);
+    } else {
+        document.getElementById('answer9').innerHTML = num + ' is not divisible by nine.';
+        divide10();
+        console.log(num);
+    }
+}
+
+function divide10 () {
+    if (num%10 === 0) {
+        document.getElementById('answer10').innerHTML = num + ' is divisible by ten.';
+        divide11();
+    } else {
+        document.getElementById('answer10').innerHTML = num + ' is not divisible by ten.';
+        divide11();
+    }
+}
+
+//set odd to odd array index values
+//set even to even array index values
+//set length
+//divide number by 10 each increment and store based on index number
+//odd - even = num11
+//if num11%11 === 0 or 11, divisible by 11
+
+function divide11() {
+    let odd = 0;
+    let even = 0;
+    let eleven = (num.toString().length-1);
+    let num11 = num;
+    console.log(eleven);
+    for (eleven; eleven>=0; eleven--) {
+        console.log(num11);
+        console.log(eleven);
+        if (eleven % 2 === 0) {
+            even = even + num11 % 10;
+            console.log(even);
+            num11 = Math.floor(num11/10);
+        } else {
+            odd = odd + num11 % 10;
+            console.log(odd);
+            num11 = Math.floor(num11/10);
+        }
+    }
+         const diff = even - odd;
+        console.log(diff);
+        if (diff%11 === 0) {
+            document.getElementById('answer11').innerHTML = num + ' is divisible by eleven.';
+        } else {
+            document.getElementById('answer11').innerHTML = num + ' is not divisible by eleven.';
+        }
+
+}
+
+function factor23 () {
+    if (num % 23 === 0) {
+        for (seven = 0; num % 23 === 0; seven++) {
+            tester23++;
+            console.log(num + ' is divisible by 23 ' + tester7 + ' times.');
+            num = num / 23;
             console.log(num);
-        } seven = ('7^' + seven);
+        } seven = ('23^' + seven);
         document.getElementById('answer7').innerHTML = seven;
         factor11();
     } else {
